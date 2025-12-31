@@ -92,3 +92,4 @@ Para verificar que todo funciona:
 
 ¿Necesitas ayuda configurando alguna parte específica?</contents>
 </xai:function_call">Crear archivo de configuración detallado
+

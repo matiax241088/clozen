@@ -34,3 +34,4 @@ console.log('🎯 Como admin podrás:');
 console.log('   - Gestionar cajas físicas');
 console.log('   - Escanear/escribir tags NFC');
 console.log('   - Acceder a paneles administrativos');
+
