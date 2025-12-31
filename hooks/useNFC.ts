@@ -181,6 +181,7 @@ export function useNFC() {
     try {
       // @ts-ignore - Web NFC API types
       if ('NDEFReader' in window) {
+        // @ts-ignore
         const ndef = new NDEFReader()
         await ndef.stop()
       }

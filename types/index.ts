@@ -77,7 +77,7 @@ export interface BoxForm {
 
 // NFC types
 export interface NFCReadResult {
-  tagId: string
+  tagId?: string
   success: boolean
   error?: string
 }

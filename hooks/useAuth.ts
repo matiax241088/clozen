@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { User, Session } from '@supabase/supabase-js'
+import { User, Session, AuthChangeEvent } from '@supabase/supabase-js'
 import { supabase, isSupabaseConfigured } from '@/lib/supabase'
 import { User as UserType } from '@/types'
 
@@ -20,7 +20,7 @@ export function useAuth() {
 
     // Obtener sesión inicial
     supabase.auth.getSession()
-      .then(({ data: { session } }) => {
+      .then(({ data: { session } }: { data: { session: Session | null } }) => {
         setSession(session)
         setUser(session?.user ?? null)
         if (session?.user) {
@@ -29,14 +29,14 @@ export function useAuth() {
           setLoading(false)
         }
       })
-      .catch((error) => {
+      .catch((error: unknown) => {
         console.warn('Supabase auth error:', error)
         setLoading(false)
       })
 
     // Escuchar cambios de autenticación
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (event, session) => {
+      async (event: AuthChangeEvent, session: Session | null) => {
         setSession(session)
         setUser(session?.user ?? null)
 
